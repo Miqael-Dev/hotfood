@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.logo img{
+  width: 10%;
+}
+
+.Home {
+  background: url(./Images/bg2.jpg) no-repeat fixed;
+  background-size: cover;
+  height: 100vh;
+}
