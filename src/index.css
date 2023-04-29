@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,12 +14,169 @@ code {
     monospace;
 }
 
+a {
+  color: white;
+  font-weight: 300;
+}
+
+li {
+  list-style: none;
+  color: white
+}
+
+:root {
+  --primary: linear-gradient(to top, rgb(208, 140, 24), rgb(254, 185, 65)) ;
+  --secondary: ;
+  --primary-font:'Roboto', sans-serif; 
+}
+
+.logo {
+  max-width:10%;
+  text-align: center;
+}
+
+
 .logo img{
-  width: 10%;
+  width: 100%;
+  padding: 3px;
 }
 
 .Home {
-  background: url(./Images/bg2.jpg) no-repeat fixed;
+  background:linear-gradient(rgba(0, 0, 0, 0.321), rgba(0, 0, 0, 0.973)), url(./Images/bg1.jpg) no-repeat fixed;
   background-size: cover;
   height: 100vh;
+}
+
+.navBar {
+  background-color: rgba(0, 0, 0, 0.16);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid rgba(192, 192, 192, 0.38);
+}
+
+.active {
+  font-weight: 600;
+  color: rgb(243, 177, 63);
+}
+
+.navLinks {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.navLinks a{
+  width:60px;
+  padding: 3px;
+  text-align: center;
+  font-size: 15px;
+  text-decoration: none;
+  font-family: var(--primary-font);
+}
+
+.navLinks a:hover {
+  font-weight: 600;
+  margin-bottom: 5px;
+  transition: 0.1s linear;
+}
+
+.user-icons {
+  padding: 0 10px 0 10px;
+  width: 8%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-icons  a {
+  color: rgba(0, 0, 0, 0.61);
+}
+
+.icon:hover {
+  background: rgb(219, 219, 219);
+}
+
+.fa-user {
+  background: white;
+  padding: 9px 10px 9px 10px;
+  border-radius: 100%;
+}
+
+.fa-cart-shopping {
+  background: white;
+  padding: 9px 8px 9px 8px;
+  border-radius: 100%;
+}
+
+.intro{
+  margin-top: 200px;
+  text-align: center;
+}
+
+.introText {
+  margin: 20px;
+  font-size: 33px;
+  color: white;
+  font-weight: 600;
+}
+
+.socialIcons {
+  margin-top: -180px;
+  float: right;
+  padding: 5px;
+}
+
+.socialIcons li {
+  cursor: pointer;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.searchBar{
+  max-width: 70%;
+}
+
+.searchInput {
+  width: 60%;
+  height: 49px;
+  border-radius: 10px 0px 0px 10px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  font-family: var(--primary-font);
+  padding: 10px;
+}
+
+.searchInput::placeholder{
+  font-size: 17px;
+  font-family: var(--primary-font);
+}
+
+.searchBtn {
+  cursor: pointer;
+  background: var(--primary);
+  font-family: var(--primary-font);
+  color: rgb(233, 233, 233);
+  font-size: 18px;
+  width: 13%;
+  height: 49px;
+  outline: none;
+  border: none;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.introBtn button{
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 7px;
+  font-family: var(--primary-font);
+  font-size: 13px;
+  margin: 18px 0px 0px 7px;
+  border-radius: 4px;
+  background: var(--primary);
+  color: rgb(255, 255, 255);
 }
