@@ -2,22 +2,23 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../Images/logo.png';
 import { Link, NavLink } from 'react-router-dom';
-import { faCartShopping, faClose, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faClose, faPhone, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import Openbanner from '../Images/open.png'
-import Closebanner from '../Images/close.png'
-
+import Openbanner from '../Images/open.png';
+import Closebanner from '../Images/close.png';
 
 const Home = () => {
     let date = new Date();
     let dateHour = date.getHours();
-    let dateDay = date.getDay();
+    let dateDay = date.getDay(); 
     console.log(dateHour)
     const [display, setDisplay] = useState("none");
+    const [bannerEase, setBannerEase] = useState('')
     const toggleBanner = () =>{
         if(display === "none"){
             setDisplay("block");
+            setBannerEase("bannerEase 0.5s")
         }else {
             setDisplay("none")
         }
@@ -26,7 +27,8 @@ const Home = () => {
     return (
         <>
             <div id='openCloseBody' style={{
-                display:`${display}`
+                display:`${display}`,
+                animation:`${bannerEase}`
             }}>
                 <div className='openClose'>
                     <FontAwesomeIcon className='closeBtn' onClick={toggleBanner}  icon={faClose}/>
@@ -73,57 +75,66 @@ const Home = () => {
                 </div>
             </div>    
             <div className='Home'>
-                <div className='navBar'>
-                    <motion.div className='logo'
-                    initial={{x: -300, opacity: 0}}
-                    animate={{x: 0, opacity: 1}}
-                    transition={{ type: "spring", duration: 1.5}}>
-                        <Link to="/"><img src={ Logo } alt="HotFood logo with plate" /></Link>
-                    </motion.div>
-                    <div className='navLinks'>
-                        <NavLink to="/">Home</NavLink>
-                        <NavLink to="menu">Menu</NavLink>
-                        <NavLink to="chefs">Chefs</NavLink>
-                        <NavLink to="about">About</NavLink>
-                    </div>
-                    <div className='user-icons'>
-                        <Link to="shoppingCart"><FontAwesomeIcon className='icon' icon={faCartShopping} /></Link>
-                        <Link to="User"><FontAwesomeIcon className='icon' icon={faUser} /></Link>
-                    </div>
-                </div>
-                <motion.div className='intro'
-                initial={{opacity: 0}}
-                animate={{opacity: 1}}
-                transition={{duration: 0.8, ease: "easeIn"}}>
-                    <div className="introText">
-                    Hi!, how can we help you?
-                    </div>
-                    <center>
-                        <motion.div className='searchBar'>
-                            <input className='searchInput' type='search' placeholder='Search'/>
-                            <button className='searchBtn'>Search</button>
+                <section className='sectionOne'>
+                    <div className='navBar'>
+                        <motion.div className='logo'
+                        initial={{x: -300, opacity: 0}}
+                        animate={{x: 0, opacity: 1}}
+                        transition={{ type: "spring", duration: 1.5}}>
+                            <Link to="/"><img src={ Logo } alt="HotFood logo with plate" /></Link>
                         </motion.div>
-                        <div className='introBtn'>
-                            <button>Learn More</button>
-                            <button>Contact</button>
+                        <div className='navLinks'>
+                            <NavLink to="/">Home</NavLink>
+                            <NavLink to="menu">Menu</NavLink>
+                            <NavLink to="chefs">Chefs</NavLink>
+                            <NavLink to="about">About</NavLink>
                         </div>
-                    </center>
-                    <div className='socialIcons'>
-                        <li><FontAwesomeIcon icon={faFacebook}/></li>
-                        <li><FontAwesomeIcon icon={faInstagram}/></li>
-                        <li><FontAwesomeIcon icon={faTwitter}/></li>
-                        <li><FontAwesomeIcon icon={faYoutube}/></li>
+                        <div className='user-icons'>
+                            <Link to="shoppingCart"><FontAwesomeIcon className='icon' icon={faCartShopping} /></Link>
+                            <Link to="User"><FontAwesomeIcon className='icon' icon={faUser} /></Link>
+                        </div>
                     </div>
-                </motion.div>
-                <motion.div className='openCloseBanner'
-                initial={{x: 200}}
-                animate={{x:0}}
-                transition={{duration:0.6, delay: 1.2, type: 'spring'}}>
-                    {dateDay > 0 && dateHour >= 9 && dateHour <= 21 ? <img src={Openbanner} onClick={toggleBanner}  className='banner' alt="open banner"/>
-                        :
-                    <img src={Closebanner} onClick={toggleBanner}  className='banner' alt='close banner'/>
-                    }
-                </motion.div>
+                    <motion.div className='intro'
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    transition={{duration: 0.8, ease: "easeIn"}}>
+                        <div className="introText">
+                        Hi!, how can we help you?
+                        </div>
+                        <center>
+                            <motion.div className='searchBar'>
+                                <FontAwesomeIcon icon={faSearch} className='searchBtn' />
+                                <input className='searchInput' type={"text"} placeholder='Search'/>
+                            </motion.div>
+                            <div className='introBtn'>
+                                <button>Learn More</button>
+                                <button>Contact</button>
+                            </div>
+                        </center>
+                        <div className='socialIcons'>
+                            <li><FontAwesomeIcon icon={faFacebook}/></li>
+                            <li><FontAwesomeIcon icon={faInstagram}/></li>
+                            <li><FontAwesomeIcon icon={faTwitter}/></li>
+                            <li><FontAwesomeIcon icon={faYoutube}/></li>
+                        </div>
+                    </motion.div>
+                    <motion.div className='openCloseBanner'
+                    initial={{x: 200}}
+                    animate={{x:0}}
+                    transition={{duration:0.6, delay: 1.2, type: 'spring'}}>
+                        {dateDay > 0 && dateHour >= 9 && dateHour <= 21 ? <img src={Openbanner} onClick={toggleBanner}  className='banner' alt="open banner"/>
+                            :
+                        <img src={Closebanner} onClick={toggleBanner}  className='banner' alt='close banner'/>
+                        }
+                    </motion.div>
+                </section>
+                <section className='sectionTwo'>        
+                    <div className='menuSection'>
+                        <div className='menuTitle'>MENU</div>
+                        <div className='menuSearchOption'>
+                        </div>
+                    </div>
+                </section>
             </div>
         </>
     );
