@@ -53,9 +53,9 @@ li {
 }
 
 .navBar {
-  position: fixed;
+  z-index: 1000;
+  position: sticky;
   top: 0;
-  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.16);
   display: flex;
   justify-content: space-around;
@@ -159,6 +159,14 @@ li {
   transition: 0.5s;
 }
 
+.fa-facebook:hover, 
+.fa-twitter:hover, 
+.fa-instagram:hover,
+.fa-youtube:hover{
+  transform: scale(1.2);
+  transition: 0.5s;
+}
+
 .searchBar{
   display: flex;
   width: 50%;
@@ -211,6 +219,9 @@ li {
   max-height: 50%;
   color: black;
   padding: 9px;
+  font-size: 1.8rem;
+  width: 8%;  
+  color: rgba(217, 12, 12, 0.74);
 }
 
 .introBtn button{
@@ -227,7 +238,7 @@ li {
 }
 
 .introBtn button:hover {
-  transition: 1s;
+  transition: 0.5s;
   background: rgba(120, 120, 120, 0.47);
 }
 
