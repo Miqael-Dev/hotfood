@@ -43,16 +43,19 @@ li {
 
 .logo img{
   width: 100%;
-  padding: 3px;
+  padding: 5px;
 }
 
-.Home {
-  background:linear-gradient(rgba(0, 0, 0, 0.128), rgba(0, 0, 0, 0.767)), url(./Images/bg1.jpg) no-repeat fixed;
+.sectionOne {
+  background: url(./Images/bg3\ \(1\).jpg) no-repeat ;
   background-size: cover;
   height: 100vh;
 }
 
 .navBar {
+  position: fixed;
+  top: 0;
+  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.16);
   display: flex;
   justify-content: space-around;
@@ -75,10 +78,10 @@ li {
 
 
 .navLinks a{
-  width:60px;
+  width: 3.8em;
   padding: 3px;
   text-align: center;
-  font-size: 15px;
+  font-size: 0.9rem;
   text-decoration: none;
 }
 
@@ -105,52 +108,73 @@ li {
 
 .fa-user {
   background: white;
-  padding: 9px 10px 9px 10px;
+  padding: 7px 8px 7px 8px;
   border-radius: 100%;
 }
 
 .fa-cart-shopping {
   background: white;
-  padding: 9px 8px 9px 8px;
+  padding: 7px 6px 7px 6px;
   border-radius: 100%;
 }
 
+
 .intro{
-  margin-top: 200px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
 }
 
 .introText {
-  margin: 20px;
-  font-size: 33px;
+  margin-top: -2rem;
+  padding: 1rem;
+  font-size: 2.2rem;
   color: white;
   font-weight: 600;
 }
 
 .socialIcons {
-  margin-top: -180px;
-  float: right;
-  padding: 5px;
+  position: absolute;
+  top: 14rem;
+  right: 0;
+  padding: 0.5em;
 }
 
-.socialIcons li {
+.fa-facebook,
+.fa-instagram,
+.fa-twitter,
+.fa-youtube {
   cursor: pointer;
-  font-size: 25px;
-  padding: 10px;
+  font-size: 1.6rem;
+  padding: 0.7rem;
+}
+
+.fa-facebook:hover, 
+.fa-twitter:hover, 
+.fa-instagram:hover,
+.fa-youtube:hover{
+  transform: scale(1.2);
+  transition: 0.5s;
 }
 
 .searchBar{
-  max-width: 70%;
+  display: flex;
+  width: 50%;
+  background: white;
+  border-radius: 7rem;
+  align-items: center;
 }
 
 .searchInput {
-  width: 60%;
-  height: 49px;
-  border-radius: 10px 0px 0px 10px;
-  border: 1px solid rgba(255, 0, 0, 0.893);
-  font-size: 18px;
-  padding: 10px;
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
   outline: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.793);
+  border-radius: 0 7rem 7rem 0;
 }
 
 .searchInput::placeholder{
@@ -159,39 +183,62 @@ li {
 
 .searchBtn {
   cursor: pointer;
-  background: var(--primary);
-  color: rgb(233, 233, 233);
-  font-size: 18px;
-  width: 13%;
-  height: 49px;
-  outline-color: red;
-  border: 1px solid rgba(255, 0, 0, 0.893);
-  border-left: none;
-  border-radius: 0px 10px 10px 0px;
+  font-size: 1.2rem;
+  width: 8%;  
+  color: rgba(217, 12, 12, 0.507);
+}
+
+.searchBtn:hover {
+  transition: 0.3s;
+  color: rgba(217, 12, 12, 0.792);
+}
+
+.searchDropdown {
+  width: 50%;
+  margin-top: 16px;
+  background: white;
+  border-radius: 20px;
+  max-height: 30vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-base-color: black;
+  scrollbar-face-color: black;
+  scrollbar-color: black;
+  scrollbar-width: 100px;
+}
+
+.searchDropdown div {
+  max-height: 50%;
+  color: black;
+  padding: 9px;
 }
 
 .introBtn button{
   cursor: pointer;
   outline: none;
   border: none;
-  border-bottom: 1px solid greenyellow;
+  border-radius: 3px;
+  border: 1px solid rgb(255, 255, 255);
   padding: 7px;
   font-size: 13px;
   margin: 18px 0px 0px 7px;
-  background: linear-gradient(to top, rgba(32, 32, 32, 0.567), rgba(0, 0, 0, 0));
+  background: rgba(0, 0, 0, 0.397);
   color: rgb(255, 255, 255);
 }
 
 .introBtn button:hover {
-  background: linear-gradient(to top, rgb(172, 255, 47), rgba(0, 0, 0, 0.167), rgba(0, 0, 0, 0));
   transition: 1s;
+  background: rgba(120, 120, 120, 0.47);
 }
 
 #openCloseBody{
+  z-index: 100;
+  top: 0px;
+  left: 0px;
   width: 100%;
   height: 100%;
   position: fixed;
-  background: rgba(0, 0, 0, 0.572);
+  background: rgba(0, 0, 0, 0.572);  
 }
 
 .openClose {
@@ -244,10 +291,83 @@ td:nth-child(2){
   font-size: 18px;
 }
 
+.banner:hover {
+  transform: scale(1.02);
+  transition: 0.5s;
+
+}
+
 .banner {
-  margin-top: 190px;
-  margin-right: -32px;
-  float: right;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
   cursor: pointer;
   width: 10%;
+}
+
+@keyframes bannerEase {
+  0%{opacity: 0}
+  100%{opacity: 1}
+}
+
+.menuTitle {
+  border-bottom: 1px solid grey;
+  padding-bottom: 10px;
+  margin: 30px 0 30px 0px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.sectionTwo {
+  width: 100%;
+  height: 240vh;
+}
+
+.menuSection {
+  margin: 0 auto;
+  width: 90%;
+
+}
+
+.menuSearchOption {
+  background: rgb(255, 255, 255);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  
+}
+
+.mealCard img {
+  border-radius: 10px 10px 0 0;
+}
+
+.mealCard {
+  box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+  padding: 10px;
+  margin: 20px 11px 0 11px;
+  width: 13rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
+  border-radius: 15px;
+}
+
+.mealName {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.777);
+  margin-top: 8px;
+}
+
+.addCartBtn {
+  width: 6rem;
+  height: 2rem;
+  outline: none;
+  border: none;
+  background: rgba(255, 0, 0, 0.849);
+  color: rgb(255, 255, 255);
+  border-radius: 6px;
 }
