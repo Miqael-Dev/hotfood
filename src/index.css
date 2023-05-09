@@ -53,15 +53,15 @@ li {
 }
 
 .navBar {
-  z-index: 1000;
-  position: sticky;
+  position: fixed;
   top: 0;
+  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.16);
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid rgba(192, 192, 192, 0.38);
+  border-bottom: 1px solid rgba(192, 192, 192, 0.38)
 }
 
 .active {
@@ -117,18 +117,19 @@ li {
   padding: 7px 6px 7px 6px;
   border-radius: 100%;
 }
+.intro {
+  height: 100vh;
+}
 
-
-.intro{
+.introSearch {
   text-align: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   justify-content: center;
 }
 
 .introText {
-  margin-top: -2rem;
+  margin-top: 15rem;
   padding: 1rem;
   font-size: 2.2rem;
   color: white;
@@ -308,12 +309,18 @@ td:nth-child(2){
 
 }
 
-.banner {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  cursor: pointer;
+.openCloseBanner {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  margin: 11rem 2rem 0 0;
   width: 10%;
+  float: right;
+}
+
+.banner {
+  width: 100%;
+  cursor: pointer;
 }
 
 @keyframes bannerEase {

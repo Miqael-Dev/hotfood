@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../Images/logo.png';
 import { useLoaderData } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
-import { faCartShopping, faClose, faPhone, faSearch, faUser, Rating } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faClose, faPhone, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
-import { Badge, InputLabel, NativeSelect, FormControl } from '@mui/material';
+import { Badge, InputLabel, NativeSelect, FormControl, Rating } from '@mui/material';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import Openbanner from '../Images/open.png';
 import Closebanner from '../Images/close.png';
@@ -82,9 +82,9 @@ const Home = () => {
                 <section className='sectionOne'>
                     <div className='navBar'>
                         <motion.div className='logo'
-                        initial={{x: -300, opacity: 0}}
-                        animate={{x: 0, opacity: 1}}
-                        transition={{ type: "spring", duration: 1.5}}>
+                        initial={{x: -300}}
+                        animate={{x: 0}}
+                        transition={{ type: "spring", duration: 1.5, delay: 0.5}}>
                             <Link to="/">
                                 <img src={ Logo } alt="HotFood logo with plate" />
                             </Link>
@@ -95,67 +95,65 @@ const Home = () => {
                             <NavLink to="chefs">Chefs</NavLink>
                             <NavLink to="about">About</NavLink>
                         </div>
-                        <div className='user-icons'>
-                            <Link to="shoppingCart"><FontAwesomeIcon className='icon' icon={faCartShopping} /></Link>
-                            <Link to="User"><FontAwesomeIcon className='icon' icon={faUser} /></Link>
-                        </div>
-                    </div>
-                    <div className="user-icons">
-                        <Badge badgeContent={0} showZero color="error">
-                            <Link to="shoppingCart">
-                                <FontAwesomeIcon className="icon" icon={faCartShopping} />
+                        <div className="user-icons">
+                            <Badge badgeContent={0} showZero color="error">
+                                <Link to="shoppingCart">
+                                    <FontAwesomeIcon className="icon" icon={faCartShopping} />
+                                </Link>
+                            </Badge>
+                            <Link to="User">
+                                <FontAwesomeIcon className="icon" icon={faUser} />
                             </Link>
-                        </Badge>
-                        <Link to="User">
-                            <FontAwesomeIcon className="icon" icon={faUser} />
-                        </Link>
-                    </div>
-                    <motion.div
-                        className="intro"
-                        initial={{ opacity: 0, scale: 0.1 }}
-                        animate={{ opacity: 1, scale: 1 }} 
-                        transition={{ duration: 1, delay: 0.3, ease: "easeIn" }}
-                        >
-                        <div className="introText">Hi!, how can we help you?</div>
-                        <center>
-                            <div className="searchBar">
-                                <FontAwesomeIcon icon={faSearch} className="searchBtn" />
-                                <input className="searchInput" type={"text"} placeholder="Search"/>
-                            </div>
-                                {/* <div className='searchDropdown'>
-                                                <div>Name</div>
-                                                <div>Name</div>
-                                                <div>Name</div>
-                                                <div>Name</div>
-                                                <div>Name</div>
-                                                <div>Name</div>
-                                                <div>Name</div>
-                                                <div>Name</div>
-                                                <div>Name</div>
-                                                <div>Name</div>
-                                            </div> */}
-                            <div className="introBtn">
-                                <button>Learn More</button>
-                                <button>Contact</button>
-                            </div>
-                        </center>
-                        <div className="socialIcons">
-                            <li><FontAwesomeIcon icon={faFacebook} /></li>
-                            <li><FontAwesomeIcon icon={faInstagram} /></li>
-                            <li><FontAwesomeIcon icon={faTwitter} /></li>
-                            <li><FontAwesomeIcon icon={faYoutube} /></li>
                         </div>
-                    </motion.div>
-                    <motion.div
-                        className="openCloseBanner"
-                        initial={{ x: 200 }}
-                        animate={{ x: 0 }}
-                        transition={{duration: 0.6, delay: 1.2, type: "spring", stiffness: 120,}}
-                    >
-                        {
-                        dateDay > 0 && dateHour >= 9 && dateHour < 21 ? (<img src={Openbanner} onClick={toggleBanner} className="banner" alt="open banner" />) : (<img src={Closebanner} onClick={toggleBanner} className="banner" alt="close banner"/>)
-                        }
-                    </motion.div>
+                    </div>
+                    <div className='intro'>     
+                        <motion.div
+                            className="introSearch"
+                            initial={{ opacity: 0, scale: 0.1 }}
+                            animate={{ opacity: 1, scale: 1 }} 
+                            transition={{ duration: 1, delay: 0.3, ease: "easeIn" }}
+                            >
+                            <div className="introText">Hi!, how can we help you?</div>
+                            <center>
+                                <div className="searchBar">
+                                    <FontAwesomeIcon icon={faSearch} className="searchBtn" />
+                                    <input className="searchInput" type={"text"} placeholder="Search"/>
+                                </div>
+                                    {/* <div className='searchDropdown'>
+                                                    <div>Name</div>
+                                                    <div>Name</div>
+                                                    <div>Name</div>
+                                                    <div>Name</div>
+                                                    <div>Name</div>
+                                                    <div>Name</div>
+                                                    <div>Name</div>
+                                                    <div>Name</div>
+                                                    <div>Name</div>
+                                                    <div>Name</div>
+                                                </div> */}
+                                <div className="introBtn">
+                                    <button>Learn More</button>
+                                    <button>Contact</button>
+                                </div>
+                            </center>
+                            <div className="socialIcons">
+                                <li><FontAwesomeIcon icon={faFacebook} /></li>
+                                <li><FontAwesomeIcon icon={faInstagram} /></li>
+                                <li><FontAwesomeIcon icon={faTwitter} /></li>
+                                <li><FontAwesomeIcon icon={faYoutube} /></li>
+                            </div>
+                        </motion.div>
+                        <motion.div
+                            className="openCloseBanner"
+                            initial={{ x: 200 }}
+                            animate={{ x: 0 }}
+                            transition={{duration: 0.6, delay: 1.2, type: "spring", stiffness: 120,}}
+                        >
+                            {
+                            dateDay > 0 && dateHour >= 9 && dateHour < 21 ? (<img src={Openbanner} onClick={toggleBanner} className="banner" alt="open banner" />) : (<img src={Closebanner} onClick={toggleBanner} className="banner" alt="close banner"/>)
+                            }
+                        </motion.div>
+                    </div>
                 </section>
                 <section className="sectionTwo">
                     <div className="menuSection">
