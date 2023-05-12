@@ -170,7 +170,7 @@ const Home = () => {
                 <section className="sectionTwo">
                     <div className="menuSection">
                         <div className="menuTitle">MENU</div>
-                            <FormControl fullWidth>
+                            <FormControl>
                                 <InputLabel variant="standard" htmlFor="uncontrolled-native">
                                     Categories
                                 </InputLabel>
@@ -180,7 +180,8 @@ const Home = () => {
                                     name: "categories",
                                     id: "uncontrolled-native",
                                     }}
-                                >
+                                    sx={{fontSize: '0.9rem', width: '200px'}}
+                                    >
                                     <option value={10}>All</option>
                                     <option value={20}>Burger</option>
                                     <option value={30}>Pizza</option>
@@ -189,17 +190,29 @@ const Home = () => {
                                 </NativeSelect>
                             </FormControl>
                         <div className="menuSearchOption">
-                        {sliceMeals.map((meal) => (
-                            <div className="mealCard" key={meal.id}>
-                            <img src={meal.image} alt={meal.name} />
-                            <span className="mealName">{meal.name}</span>
-                            <Rating name="read-only" value={3} readOnly />
-                            <span className="mealPrice">{meal.price}</span>
-                            <button className="addCartBtn">Add to cart</button>
-                            </div>
-                        ))}
+                            {sliceMeals.map((meal) => (
+                                <div className="mealCard" key={meal.id}>
+                                <img src={meal.image} alt={meal.name} />
+                                <span className="mealName">{meal.name}</span>
+                                <Rating 
+                                name="read-only" 
+                                value={3} 
+                                readOnly 
+                                sx={{
+                                    fontSize: '1.2rem',
+                                }}/>
+                                <span className="mealPrice">{meal.price}</span>
+                                <button className="addCartBtn">Add to cart</button>
+                                </div>
+                            ))}
                         </div>
                     </div>
+                    <div className='seeMore'>
+                        <div>{"See More >>"}</div>
+                    </div>
+                </section>
+                <section className="sectionThree">
+                    
                 </section>
             </div>
         </>
