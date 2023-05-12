@@ -1,24 +1,42 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Logo from '../Images/logo.png';
 import { useLoaderData } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
-import { faCartShopping, faClose, faPhone, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faClose, faCommentsDollar, faPhone, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import { Badge, InputLabel, NativeSelect, FormControl, Rating } from '@mui/material';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+
+/* Local Imports */
+import Logo from '../Images/logo.png';
 import Openbanner from '../Images/open.png';
 import Closebanner from '../Images/close.png';
 
 const Home = () => {
     let date = new Date();
     let dateHour = date.getHours();
-    let dateDay = date.getDay(); 
-    console.log(dateHour)
+    let dateDay = date.getDay();
+    console.log(dateHour);
     const meals = useLoaderData();
     const sliceMeals = meals.slice(0, 12)
     const [display, setDisplay] = useState("none");
-    const [bannerEase, setBannerEase] = useState('')
+    const [bannerEase, setBannerEase] = useState("");
+    const [searchInput, setSearchInput] = useState("");
+    const handleChange = e => {
+        e.preventDefault();
+        setSearchInput(e.target.value);
+    };
+
+    const handleClick = (a) => {
+        console.log(a.target.innerText)
+    }
+    console.log(searchInput)
+    const filter = meals.filter((meal) => (
+        meal.name.toLowerCase().match(searchInput.toLocaleLowerCase())
+    ));
+
+    console.log(filter);
+    
     const toggleBanner = () =>{
         if(display === "none"){
             setDisplay("block");
@@ -27,7 +45,6 @@ const Home = () => {
             setDisplay("none")
         }
     }
-    
     return (
         <>
             <div id='openCloseBody' style={{
@@ -114,28 +131,23 @@ const Home = () => {
                             transition={{ duration: 1, delay: 0.3, ease: "easeIn" }}
                             >
                             <div className="introText">Hi!, how can we help you?</div>
-                            <center>
                                 <div className="searchBar">
                                     <FontAwesomeIcon icon={faSearch} className="searchBtn" />
-                                    <input className="searchInput" type={"text"} placeholder="Search"/>
+                                    <input className="searchInput" value={searchInput} onChange={handleChange} type={"text"} placeholder="Search"/>
                                 </div>
-                                    {/* <div className='searchDropdown'>
-                                                    <div>Name</div>
-                                                    <div>Name</div>
-                                                    <div>Name</div>
-                                                    <div>Name</div>
-                                                    <div>Name</div>
-                                                    <div>Name</div>
-                                                    <div>Name</div>
-                                                    <div>Name</div>
-                                                    <div>Name</div>
-                                                    <div>Name</div>
-                                                </div> */}
+                                <div>
+                                    <div className='searchDropdown'>
+                                        {
+                                        searchInput.length > 0 ? filter.map((names) => (
+                                                <div key={names.name} onClick={handleClick}>{names.name}</div>
+                                                )) : null  
+                                        }
+                                    </div>
+                                </div>
                                 <div className="introBtn">
                                     <button>Learn More</button>
                                     <button>Contact</button>
                                 </div>
-                            </center>
                             <div className="socialIcons">
                                 <li><FontAwesomeIcon icon={faFacebook} /></li>
                                 <li><FontAwesomeIcon icon={faInstagram} /></li>

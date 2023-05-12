@@ -12,7 +12,26 @@ body {
 
 *{
   font-family: var(--primary-font);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-base-color: black;
+  scrollbar-track-color: blue;
 }
+
+::-webkit-scrollbar {
+  width: 5px; 
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 0.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 16, 16, 0.894);
+  border-radius: 5px;
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -122,7 +141,7 @@ li {
 }
 
 .introSearch {
-  text-align: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -203,26 +222,26 @@ li {
 }
 
 .searchDropdown {
-  width: 50%;
-  margin-top: 16px;
+  margin: 5px;
+  border-radius: 5px;
+  width: 49%;
   background: white;
-  border-radius: 20px;
-  max-height: 30vh;
+  max-height: 35vh;
   overflow-y: scroll;
-  scroll-behavior: smooth;
-  scrollbar-base-color: black;
-  scrollbar-face-color: black;
-  scrollbar-color: black;
-  scrollbar-width: 100px;
+  position: absolute;
+  left: calc(50% - 50%/2);
 }
 
 .searchDropdown div {
-  max-height: 50%;
-  color: black;
-  padding: 9px;
-  font-size: 1.8rem;
-  width: 8%;  
-  color: rgba(217, 12, 12, 0.74);
+  cursor: pointer;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.752);
+  padding: 5px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.208);
+}
+
+.searchDropdown div:hover {
+  background: rgba(128, 128, 128, 0.325);
 }
 
 .introBtn button{
@@ -313,7 +332,7 @@ td:nth-child(2){
   padding: 5px;
   display: flex;
   justify-content: center;
-  margin: 11rem 2rem 0 0;
+  margin: 8rem 1rem 0 0;
   width: 10%;
   float: right;
 }
