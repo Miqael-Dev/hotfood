@@ -351,27 +351,28 @@ td:nth-child(2){
   margin: 0 0 30px 0px;
   font-size: 2rem;
   font-weight: 600;
+  color: rgb(41, 41, 41);
 }
 
 .sectionTwo {
-  background: radial-gradient(circle at 10% 20%, rgb(128, 248, 174) 0%, rgb(223, 244, 148) 90%);
+  background: linear-gradient(to top, #0fd850 0%, #f9f047 100%);
   width: 100%;
 }
 
 .menuSection {
   margin: 0 auto;
-  width: 90%;
+  width: 85%;
 
 }
 
 .menuSearchOption {
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
-  
 }
+
+
 
 .mealCard img {
   border-radius: 10px 10px 0 0;
@@ -379,9 +380,9 @@ td:nth-child(2){
 
 .mealCard {
   box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
-  padding: 10px;
-  margin: 20px 11px 0 11px;
-  width: 11rem;
+  padding: 5px;
+  margin: 20px 18px 0 18px;
+  width: 12rem;
   display: flex;
   flex-direction: column;
   background: rgb(255, 255, 255);
@@ -410,16 +411,16 @@ td:nth-child(2){
   display: flex;
   justify-content: right;
   padding: 20px;
-  margin-right: 30px;
+  margin-right: 5rem;
 }
 
-.seeMore  div{
+.seeMoreText{
   cursor: pointer;
   font-size: 15px;
   padding: 5px;
   text-align: center;
   width: 6rem;
-  background: rgba(255, 0, 0, 0.849);
+  background: rgba(255, 32, 32, 0.992);
   color: white;
   border-radius: 0.3em;
 }

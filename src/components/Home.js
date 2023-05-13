@@ -206,9 +206,9 @@ const Home = () => {
                                 </div>
                             ))}
                         </div>
-                    </div>
                     <div className='seeMore'>
-                        <div>{"See More >>"}</div>
+                        <div className="seeMoreText">{"See More >>"}</div>
+                    </div>
                     </div>
                 </section>
                 <section className="sectionThree">
