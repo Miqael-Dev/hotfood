@@ -212,7 +212,9 @@ const Home = () => {
                     </div>
                 </section>
                 <section className="sectionThree">
-                    
+                    <div className='chefSection'>
+                        <div className='chefSectionTitle'>Meet Our Chefs</div>
+                    </div>
                 </section>
             </div>
         </>
