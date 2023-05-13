@@ -214,6 +214,12 @@ const Home = () => {
                 <section className="sectionThree">
                     <div className='chefSection'>
                         <div className='chefSectionTitle'>Meet Our Chefs</div>
+                        <div className='chefs'>
+                            <div className='chefOne'>
+                                <img src="./Images/chef1.jpg"  alt='chef cooking' />
+                                <h2>Name</h2>
+                            </div>       
+                        </div>
                     </div>
                 </section>
             </div>
