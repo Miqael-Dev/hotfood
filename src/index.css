@@ -1,7 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Signika+Negative:wght@300&display=swap');
+
+:root {
+  --primary: linear-gradient(to top, rgb(208, 140, 24), rgb(254, 185, 65)) ;
+  --secondary-font: 'Signika Negative', sans-serif ;
+  --primary-font:'Roboto', sans-serif; 
+}
 
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -16,6 +21,9 @@ body {
   -ms-overflow-style: none;
   scrollbar-base-color: black;
   scrollbar-track-color: blue;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
@@ -48,11 +56,6 @@ li {
   color: white
 }
 
-:root {
-  --primary: linear-gradient(to top, rgb(208, 140, 24), rgb(254, 185, 65)) ;
-  --secondary: ;
-  --primary-font:'Roboto', sans-serif; 
-}
 
 .logo {
   max-width:10%;
@@ -62,16 +65,17 @@ li {
 
 .logo img{
   width: 100%;
-  padding: 2px;
+  padding: 4px;
 }
 
 .sectionOne {
-  background: url(./Images/bg3\ \(1\).jpg) no-repeat ;
+  background: url(https://i.ibb.co/qDmGTCy/bg-img-min.jpg) no-repeat ;
   background-size: cover;
   height: 100vh;
 }
 
 .navBar {
+  z-index: 3;
   position: fixed;
   top: 0;
   overflow: hidden;
@@ -84,8 +88,11 @@ li {
 }
 
 .active {
-  font-weight: 600;
-  color: rgb(254,192,87);
+  padding: 10px;
+  background: rgb(41, 41, 41);
+  font-weight: 400;
+  color: white;
+  border-radius: 5rem;
 }
 
 .navLinks {
@@ -97,10 +104,10 @@ li {
 
 
 .navLinks a{
-  width: 3.8em;
-  padding: 3px;
+  width: 5em;
+  padding: 5px;
   text-align: center;
-  font-size: 0.78em;
+  font-size: 0.9em;
   text-decoration: none;
 }
 
@@ -118,47 +125,101 @@ li {
 }
 
 .user-icons  a {
-  color: rgba(0, 0, 0, 0.61);
+  color: rgb(255, 255, 255);
 }
 
 .icon:hover {
-  background: rgb(219, 219, 219);
+  background: rgb(55, 55, 55);
+  transition: 0.3s;
 }
 
 .fa-user {
-  background: white;
+  background: rgb(41, 41, 41);
   padding: 7px 8px 7px 8px;
   border-radius: 100%;
 }
 
 .fa-cart-shopping {
-  background: white;
+  background: rgb(41, 41, 41);
   padding: 7px 6px 7px 6px;
   border-radius: 100%;
 }
+
+/* Section One ///////////////////////////////////////////////////////////////////////////////////////////// */
+
 .intro {
-  height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.introContent {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.pizzaSlice {
+  position: absolute;
+  top: 30vh;
+  right: 3.1vh;
+  z-index: 1;
+}
+
+
+.pizzaSliceTwo {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100dvh;
+}
+
+.pizzaSlice img{
+  width: 52.2vh;
+  transform: rotateZ(211.8deg);
+}
+
+.pizzaSliceTwo img {
+  height: 100%;
 }
 
 .introSearch {
-  align-items: center;
+  padding-left: 30px;
+  align-items: left;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .introText {
-  margin-top: 15rem;
-  padding: 1rem;
-  font-size: 2.2rem;
-  color: white;
-  font-weight: 600;
+  padding-bottom: 10px;
+  user-select: none;
 }
 
+.introOne {
+  padding-left: 10px;
+  font-size: 2rem;
+  color: rgb(83, 83, 83);
+  font-family: var(--secondary-font);
+  font-weight: 500;
+}
+
+.introTwo {
+  font-size: 6rem;
+  font-family: var(--secondary-font);
+  font-weight: 600;
+  color: rgb(53, 53, 53);
+}
+
+.introThree {
+  font-size: 17px;
+  font-weight: 500;
+  margin-left: 10px;
+  color: rgb(107, 107, 107);
+}
+
+
 .socialIcons {
-  position: absolute;
   top: 14rem;
-  right: 0;
   padding: 0.5em;
 }
 
@@ -166,17 +227,15 @@ li {
 .fa-instagram,
 .fa-twitter,
 .fa-youtube {
+  color: white;
+  background: rgb(41, 41, 41);
   cursor: pointer;
-  font-size: 1.6rem;
-  padding: 0.7rem;
-}
-
-.fa-facebook:hover, 
-.fa-twitter:hover, 
-.fa-instagram:hover,
-.fa-youtube:hover{
-  transform: scale(1.2);
-  transition: 0.5s;
+  font-size: 1.2rem;
+  margin: 5px 0 5px 20px;
+  width: 1.3rem;
+  height: 1.3rem;
+  padding: 5px;
+  border-radius: 5rem;
 }
 
 .fa-facebook:hover, 
@@ -189,17 +248,17 @@ li {
 
 .searchBar{
   display: flex;
-  width: 50%;
+  width: 100%;
   background: white;
-  border-radius: 7rem;
+  border-radius: 10px;
   align-items: center;
 }
 
 .searchInput {
   width: 100%;
   height: 40px;
-  font-size: 14px;
   outline: none;
+  font-size: 14px;
   border: none;
   color: rgba(0, 0, 0, 0.793);
   border-radius: 0 7rem 7rem 0;
@@ -218,7 +277,7 @@ li {
 
 .searchBtn:hover {
   transition: 0.3s;
-  color: rgba(217, 12, 12, 0.792);
+  color: rgba(171, 106, 106, 0.792);
 }
 
 .searchDropdown {
@@ -248,22 +307,33 @@ li {
   cursor: pointer;
   outline: none;
   border: none;
-  border-radius: 3px;
-  border: 1px solid rgb(255, 255, 255);
-  padding: 7px;
+  height: 2.5rem;
+  width: 7rem;
+  border-radius: 3rem;
+  padding: 10px;
   font-size: 13px;
   margin: 18px 0px 0px 7px;
-  background: rgba(0, 0, 0, 0.397);
+  background: rgb(41, 41, 41);
   color: rgb(255, 255, 255);
 }
 
-.introBtn button:hover {
+.introBtn button:nth-child(2) {
+  background: transparent;
+  border: 2px solid white;
+}
+
+.introBtn button:nth-child(1):hover {
+  transition: 0.3s;
+  background: rgb(223, 26, 0)
+}
+
+.introBtn button:nth-child(2):hover {
   transition: 0.5s;
-  background: rgba(120, 120, 120, 0.47);
+  background: rgba(226, 41, 41, 0.404);
 }
 
 #openCloseBody{
-  z-index: 100;
+  z-index: 4;
   top: 0px;
   left: 0px;
   width: 100%;
@@ -284,10 +354,14 @@ li {
 }
 
 .openClose table {
-  padding: 40px;
+  padding: 50px;
   border: 1px solid rgba(255, 255, 255, 0.265);
   border-radius: 10px;
   width: 100%;
+}
+
+td{
+  padding: 2px 0 2px 0;
 }
 
 td:nth-child(2){
@@ -295,12 +369,14 @@ td:nth-child(2){
 }
 
 .contactInfo {
+  margin: 10px 0 10px 0;
   font-size: 13px;
   font-weight: 300;
 }
 
 .openTitle {
   color: black;
+  margin: 20px 0 20px 0;
   padding: 14px;
   background: white;
   border-radius: 10px;
@@ -321,30 +397,38 @@ td:nth-child(2){
 }
 
 .banner:hover {
-  transform: scale(1.02);
-  transition: 0.5s;
+  transform: scale(1.05);
+  transition: 0.3s;
 
 }
 
 .openCloseBanner {
-  padding: 5px;
-  display: flex;
-  justify-content: center;
-  margin: 10rem 1rem 0 0;
-  width: 10%;
-  float: right;
+  position: absolute;
+  left: -4rem;
+  bottom: 1.5rem;
+  width: 18%;
 }
 
 .banner {
+  box-shadow: 2px 2px 8px 2px  rgba(0, 0, 0, 0.32);
+  border-radius: 3rem;
   width: 100%;
+  background-color: white;
+  text-align: right;
+  padding: 8px 40px 8px 0;
+  font-size: 15px;
+  color: rgb(59, 59, 59);
   cursor: pointer;
 }
 
-@keyframes bannerEase {
-  0%{opacity: 0}
-  100%{opacity: 1}
+.CloseBanner {
+  color: rgb(255, 255, 255);
+  background: rgb(41,41,41);
 }
 
+/* End Of Section One ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Section Two ///////////////////////////////////////////////////////////////////////////////////////////// */
 .menuTitle {
   border-bottom: 1px solid grey;
   padding: 30px 0 10px 0;
@@ -396,6 +480,11 @@ td:nth-child(2){
   margin-top: 8px;
 }
 
+.mealPrice {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.801);
+}
+
 .addCartBtn {
   cursor: pointer;
   width: 6rem;
@@ -424,11 +513,25 @@ td:nth-child(2){
   color: white;
   border-radius: 0.3em;
 }
+
+.sectionThree {
+  height: 100vh;
+}
+
 .chefSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0 3rem 0 3rem;
 }
 
+.chefs {
+  width: 80%;
+
+}
+
 .chefSectionTitle {
+  width: 50%;
   text-align: center;
   border-bottom: 1px solid grey;
   padding: 30px 0 10px 0;
@@ -439,9 +542,20 @@ td:nth-child(2){
 }
 
 .chefOne {
+  border-radius: 20px;
   display: flex;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 
 .chefOne img{
   width: 30%;
 }
+/* End of Section Two ///////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Keyframes  ///////////////////////////////////////////////////////////////////////////////////////////// */
+  @keyframes bannerEase {
+    0%{opacity: 0}
+    100%{opacity: 1}
+  }
+/* End Of Keyframes //////////////////////////////////////////////////////////////////////////////////////// */

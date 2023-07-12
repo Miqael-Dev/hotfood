@@ -1,16 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLoaderData } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
-import { faCartShopping, faClose, faCommentsDollar, faPhone, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faClose, faPhone, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 import { Badge, InputLabel, NativeSelect, FormControl, Rating } from '@mui/material';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
-/* Local Imports */
-import Logo from '../Images/logo.png';
-import Openbanner from '../Images/open.png';
-import Closebanner from '../Images/close.png';
 
 const Home = () => {
     let date = new Date();
@@ -18,7 +14,7 @@ const Home = () => {
     let dateDay = date.getDay();
     console.log(dateHour);
     const meals = useLoaderData();
-    const sliceMeals = meals.slice(0, 12)
+    // const sliceMeals = meals.slice(0, 12)
     const [display, setDisplay] = useState("none");
     const [bannerEase, setBannerEase] = useState("");
     const [searchInput, setSearchInput] = useState("");
@@ -31,11 +27,10 @@ const Home = () => {
         console.log(a.target.innerText)
     }
     console.log(searchInput)
-    const filter = meals.filter((meal) => (
-        meal.name.toLowerCase().match(searchInput.toLocaleLowerCase())
-    ));
+    // const filter = meals.filter((meal) => (
+    //     meal.name.toLowerCase().match(searchInput.toLocaleLowerCase())
+    // ));
 
-    console.log(filter);
     
     const toggleBanner = () =>{
         if(display === "none"){
@@ -103,7 +98,7 @@ const Home = () => {
                         animate={{x: 0}}
                         transition={{ type: "spring", duration: 1.5, delay: 0.5}}>
                             <Link to="/">
-                                <img src={ Logo } alt="HotFood logo with plate" />
+                                <img src={"https://i.ibb.co/DR78PSz/logo-min.png"} alt="HotFood logo with plate" />
                             </Link>
                         </motion.div>
                         <div className='navLinks'>
@@ -123,46 +118,73 @@ const Home = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className='intro'>     
-                        <motion.div
-                            className="introSearch"
-                            initial={{ opacity: 0, scale: 0.1 }}
-                            animate={{ opacity: 1, scale: 1 }} 
-                            transition={{ duration: 1, delay: 0.3, ease: "easeIn" }}
-                            >
-                            <div className="introText">Hi!, how can we help you?</div>
-                                <div className="searchBar">
-                                    <FontAwesomeIcon icon={faSearch} className="searchBtn" />
-                                    <input className="searchInput" value={searchInput} onChange={handleChange} type={"text"} placeholder="Search"/>
-                                </div>
-                                <div>
-                                    <div className='searchDropdown'>
-                                        {
-                                        searchInput.length > 0 ? filter.map((names) => (
-                                                <div key={names.name} onClick={handleClick}>{names.name}</div>
-                                                )) : null  
-                                        }
-                                    </div>
-                                </div>
-                                <div className="introBtn">
-                                    <button>Learn More</button>
-                                    <button>Contact</button>
-                                </div>
-                            <div className="socialIcons">
-                                <li><FontAwesomeIcon icon={faFacebook} /></li>
-                                <li><FontAwesomeIcon icon={faInstagram} /></li>
-                                <li><FontAwesomeIcon icon={faTwitter} /></li>
-                                <li><FontAwesomeIcon icon={faYoutube} /></li>
+                    <div className='intro'>
+                        <div className='introContent'>
+                            <motion.div className='pizzaSlice'
+                            initial={{x: 0}}
+                            animate={{x: -100}}
+                            transition={{duration: 1, delay: 0.6, type: "spring", stiffness: 100}}>
+                                <img src={'https://i.ibb.co/dgBr7qw/pizza-slice-min.png'} alt="pizza slice" />
+                            </motion.div>
+                            <div className="pizzaSliceTwo">
+                                <img src={'https://i.ibb.co/jg97GSm/pizza-slice2-min.png'} alt='pizza'/>
                             </div>
-                        </motion.div>
+                                <div className="socialIcons">
+                                    <li><FontAwesomeIcon icon={faFacebook} /></li>
+                                    <li><FontAwesomeIcon icon={faInstagram} /></li>
+                                    <li><FontAwesomeIcon icon={faTwitter} /></li>
+                                    <li><FontAwesomeIcon icon={faYoutube} /></li>
+                                </div>
+                                <motion.div
+                                    className="introSearch"
+                                    initial={{ opacity: 0, scale: 0.7 }}
+                                    animate={{ opacity: 1, scale: 1 }} 
+                                    transition={{ duration: 0.7, ease: "easeIn" }}
+                                    >
+                                    <div className="introText">
+                                        <span className="introOne">Are you hungry?</span><br/>
+                                        <span className="introTwo">Don't wait!</span><br/>
+                                        <span className="introThree">Order you food now</span>
+                                    </div>
+                                        <div className="searchBar">
+                                            <FontAwesomeIcon icon={faSearch} className="searchBtn" />
+                                            <input className="searchInput" value={searchInput} onChange={handleChange} type={"text"} placeholder="Search"/>
+                                        </div>
+                                        <div>
+                                            <div className='searchDropdown'>
+                                                {
+                                                // searchInput.length > 0 ? filter.map((names) => (
+                                                //         <div key={names.name} onClick={handleClick}>{names.name}</div>
+                                                //         )) : null  
+                                                }
+                                            </div>
+                                        </div>
+                                        <div className="introBtn">
+                                            <button>Order now</button>
+                                            <button>explore &#8594;</button>
+                                        </div>
+                                </motion.div>
+                        
+                        </div>     
                         <motion.div
                             className="openCloseBanner"
-                            initial={{ x: 200 }}
+                            initial={{ x: -200 }}
                             animate={{ x: 0 }}
-                            transition={{duration: 0.6, delay: 1.2, type: "spring", stiffness: 120,}}
+                            transition={{duration: 0.6, delay: 1.2, type: "spring", stiffness: 120,}
+                        }
                         >
                             {
-                            dateDay > 0 && dateHour >= 9 && dateHour < 21 ? (<img src={Openbanner} onClick={toggleBanner} className="banner" alt="open banner" />) : (<img src={Closebanner} onClick={toggleBanner} className="banner" alt="close banner"/>)
+                            dateDay > 0 && dateHour >= 9 && dateHour < 21 ? 
+                            (
+                                <div className='banner openBanner' onClick={toggleBanner}>
+                                    We're Open
+                                </div>
+                            ) : 
+                            (
+                                <div className='banner CloseBanner' onClick={toggleBanner}>
+                                    We're Close
+                                </div>
+                            )
                             }
                         </motion.div>
                     </div>
@@ -190,13 +212,13 @@ const Home = () => {
                                 </NativeSelect>
                             </FormControl>
                         <div className="menuSearchOption">
-                            {sliceMeals.map((meal) => (
+                            {/* {sliceMeals.map((meal) => (
                                 <div className="mealCard" key={meal.id}>
                                 <img src={meal.image} alt={meal.name} />
                                 <span className="mealName">{meal.name}</span>
                                 <Rating 
                                 name="read-only" 
-                                value={3} 
+                                value={meal.rating} 
                                 readOnly 
                                 sx={{
                                     fontSize: '1.2rem',
@@ -204,7 +226,7 @@ const Home = () => {
                                 <span className="mealPrice">{meal.price}</span>
                                 <button className="addCartBtn">Add to cart</button>
                                 </div>
-                            ))}
+                            ))} */}
                         </div>
                     <div className='seeMore'>
                         <div className="seeMoreText">{"See More >>"}</div>
@@ -227,9 +249,9 @@ const Home = () => {
   );
 };
 
-export const mealsloader = async () => {
-  const res = await fetch("http://database4002.herokuapp.com/meals");
-  return res.json();
-};
+// export const mealsloader = async () => {
+//   const res = await fetch("http://database4002.herokuapp.com/meals");
+//   return res.json();
+// };
 
 export default Home;
