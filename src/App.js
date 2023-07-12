@@ -2,15 +2,14 @@ import React from "react"
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 /* Local imports */
-import Home, { mealsloader } from './components/Home'
+import Home from './components/Home'
 
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home/>,
-      loader: mealsloader
+      element: <Home/>
     }
   ])
   return (
